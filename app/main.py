@@ -22,6 +22,8 @@ def parse_args():
 
 
 def main():
+    print("HOT RELOAD TEST")
+
     args = parse_args()
     file_path = args.file_path
     try:
