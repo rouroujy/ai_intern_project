@@ -1,0 +1,4 @@
+Hello world.
+This is a simple text file.
+Hello again.
+This text is for testing the text analyzer.

@@ -1,0 +1,15 @@
+2026-02-15 14:32:37,511 - ERROR - Division by zero attempted
+2026-02-15 14:32:43,380 - INFO - 2.0 / 4.0 =0.5 
+2026-02-15 14:50:32,148 - INFO - 4.0/7.0=0.5714285714285714
+2026-02-15 14:50:39,573 - INFO - 0.0/2.0=0.0
+2026-02-15 14:50:45,686 - INFO - 2.0/7.0=0.2857142857142857
+2026-02-15 14:50:58,422 - ERROR - Division by zero attempted
+2026-02-15 14:53:27,073 - ERROR - Division by zero attempted
+2026-02-15 15:27:25,782 - INFO - Successfully analyzed file: data/sample.txt
+2026-02-15 16:03:16,349 - ERROR - Error analyzing file: 'builtin_function_or_method' object has no attribute 'translate'
+2026-02-15 16:04:46,376 - ERROR - Error analyzing file: 'builtin_function_or_method' object has no attribute 'translate'
+2026-02-15 16:06:02,586 - INFO - Successfully analyzed file: data/sample.txt
+2026-02-15 16:06:11,928 - INFO - Successfully analyzed file: data/sample.txt
+2026-02-15 16:08:15,022 - ERROR - Error analyzing file: 'builtin_function_or_method' object has no attribute 'translate'
+2026-02-15 16:08:46,935 - INFO - Successfully analyzed file: data/sample.txt
+2026-02-15 16:12:40,881 - INFO - Successfully analyzed file: data/sample.txt
