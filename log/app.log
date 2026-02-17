@@ -20,3 +20,63 @@
 2026-02-16 07:27:44,149 - INFO - Successfully analyzed file: data/sample.txt
 2026-02-16 07:28:15,958 - INFO - Successfully analyzed file: data/test_docker.txt
 2026-02-16 07:29:09,078 - INFO - Successfully analyzed file: data/test_docker.txt
+2026-02-17 16:34:41,494 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-17 16:34:41,497 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:36:02,242 - app.analyzer - INFO - Start analyzing file: data/big.txt
+2026-02-17 16:36:02,243 - app.analyzer - INFO - Start analyzing file: data/big.txt
+2026-02-17 16:36:02,243 - app.analyzer - INFO - Start analyzing file: data/big.txt
+2026-02-17 16:36:03,141 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:36:03,734 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:36:04,296 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:36:04,368 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-17 16:36:04,370 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:37:40,754 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-17 16:37:40,756 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-17 16:37:40,758 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-17 16:37:40,758 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-17 16:38:06,337 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-17 16:38:06,338 - app.analyzer - INFO - Start analyzing file: not_exist.txt
+2026-02-17 16:38:06,340 - app.analyzer - ERROR - File not found
+Traceback (most recent call last):
+  File "/home/rourou/ai_intern_project/app/analyzer.py", line 21, in analyze_text
+    async with aiofiles.open(file_path, "r", encoding="utf-8") as f:
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 73, in __aenter__
+    return await self
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 69, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 93, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: 'not_exist.txt'
+2026-02-17 16:38:06,340 - __main__ - ERROR - Business error: File does not exist
+2026-02-17 16:39:57,080 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-17 16:39:57,082 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-17 16:39:57,083 - app.analyzer - ERROR - Unexpected error while reading file
+Traceback (most recent call last):
+  File "/home/rourou/ai_intern_project/app/analyzer.py", line 21, in analyze_text
+    async with aiofiles.open(file_path, "r", encoding="utf-8") as f:
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 73, in __aenter__
+    return await self
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 69, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 93, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+PermissionError: [Errno 13] Permission denied: 'data/sample.txt'
+2026-02-17 16:39:57,083 - __main__ - ERROR - System level error occurred
+Traceback (most recent call last):
+  File "/home/rourou/ai_intern_project/app/main.py", line 65, in main
+    result = await analyze_text(
+  File "/home/rourou/ai_intern_project/app/analyzer.py", line 21, in analyze_text
+    async with aiofiles.open(file_path, "r", encoding="utf-8") as f:
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 73, in __aenter__
+    return await self
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/base.py", line 69, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/home/rourou/ai_intern_project/venv/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 93, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+PermissionError: [Errno 13] Permission denied: 'data/sample.txt'
