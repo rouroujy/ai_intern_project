@@ -126,3 +126,5 @@ TypeError: BailianClient.analyze_text() missing 1 required positional argument: 
 2026-02-20 15:13:37,326 - app.analyzer - INFO - Start analyzing file: data/sample.txt
 2026-02-20 15:13:37,328 - app.analyzer - DEBUG - Raw text length: 98
 2026-02-20 15:13:37,329 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-20 16:57:49,952 - main - INFO - 收到请求
+2026-02-20 16:57:49,952 - main - INFO - 处理成功！
