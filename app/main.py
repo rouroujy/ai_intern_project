@@ -5,7 +5,9 @@ from app.analyzer import analyze_text , TextAnalysisError
 import argparse
 import asyncio
 import time
-
+from app.config import settings
+from app.core.logging import setup_logging
+from app.services.bailian_client import BailianClient
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +15,6 @@ def setup_logging():
         os.makedirs("log",exist_ok=True)
         logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)
-
         formatter = logging.Formatter(
              "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
@@ -45,10 +46,10 @@ def parse_args():
 
 
 async def main():
-    print("HOT RELOAD TEST")
+    logger.info(f"现在的环境为:{settings.ENV}")
     args = parse_args()
 
-    # 测试async
+    # 并发测试
     # start = time.perf_counter()
 
     # tasks = [
@@ -62,25 +63,32 @@ async def main():
     # print("Time:",time.perf_counter() - start)
 
     try:
+        # 测试百炼API
+        client = BailianClient()
+        result_bailian_test = client.analyze_text("请帮我总结这段文字的主题。人工智能正在改变世界。")
+        print(f"测试阿里云百炼API结果输出：{result_bailian_test}")
+
         result = await analyze_text(
              args.file_path,
              ignore_case = args.ignore_case,
              remove_punctuation = args.remove_punctuation
         )
-        print("\nText Analysis Result:")
+        print("\n文本分析结果:")
         for key,value in result.items():
              print(f"{key}:{value}")
 
         
     #main捕获业务异常
     except TextAnalysisError as e:
-         logger.error(f"Business error: {e}")
-         print(f"Error: {e}")
+         logger.error(f"业务异常: {e}")
+         print(f"错误: {e}")
         
     #系统异常
     except Exception:
+         logger.exception("系统级异常")
 
-         logger.exception("System level error occurred")
+
+    # 01 未引入异常分层结构
 
     # file_path = args.file_path
     # try:
@@ -97,6 +105,9 @@ async def main():
     #     logging.error(f"Error analyzing file: {e}")
     #     print(f"Error:{e}")
     
+
+    # 00 未引入argparse机制
+
     # print("sys.argv 列表:", sys.argv)
     # if len(sys.argv) < 2 :
     #     print("Usage: python -m app.main <fhile_path>")
@@ -111,6 +122,7 @@ async def main():
     #           print(f"{key}:{value}")
 
 if __name__=="__main__":
-        setup_logging()
-        asyncio.run(main())
-        # main()    
+     setup_logging()
+     logger.info(f"安全加载环境变量: {settings.safe_dict()}")
+     asyncio.run(main())
+     # main()    

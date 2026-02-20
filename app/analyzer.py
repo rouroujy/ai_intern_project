@@ -23,7 +23,6 @@ async def analyze_text(file_path: str,
         async with aiofiles.open(file_path, "r", encoding="utf-8") as f:
             text = await f.read()
             logger.debug("Raw text length: %s", len(text))
-
     except FileNotFoundError:
         logger.exception("File not found")
         raise TextAnalysisError("File does not exist")

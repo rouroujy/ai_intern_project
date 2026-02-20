@@ -80,3 +80,49 @@ Traceback (most recent call last):
   File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
     result = self.fn(*self.args, **self.kwargs)
 PermissionError: [Errno 13] Permission denied: 'data/sample.txt'
+2026-02-18 11:03:37,169 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-18 11:03:37,169 - __main__ - INFO - Current environment:dev
+2026-02-18 11:03:37,170 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-18 11:03:37,172 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-18 11:03:37,172 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-20 14:32:26,790 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 14:34:08,138 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 14:34:08,139 - __main__ - INFO - Current environment:dev
+2026-02-20 14:34:08,140 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-20 14:34:08,143 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-20 14:34:08,143 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-20 14:36:55,025 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 14:36:55,025 - __main__ - INFO - Current environment:dev
+2026-02-20 14:36:55,026 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-20 14:36:55,027 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-20 14:36:55,027 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-20 15:04:56,142 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 15:04:56,143 - __main__ - INFO - 现在的环境为:dev
+2026-02-20 15:04:56,144 - __main__ - ERROR - 系统级异常
+Traceback (most recent call last):
+  File "/home/rourou/ai_intern_project/app/main.py", line 69, in main
+    result_bailian_test = client.analyze_text()
+TypeError: BailianClient.analyze_text() missing 1 required positional argument: 'text'
+2026-02-20 15:05:21,111 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 15:05:21,111 - __main__ - INFO - 现在的环境为:dev
+2026-02-20 15:05:21,112 - app.services.bailian_client - INFO - 发送请求到百炼API...
+2026-02-20 15:05:21,113 - dashscope - DEBUG - Request body: {'model': 'qwen-turbo', 'parameters': {'max_tokens': 200}, 'input': {'prompt': '请帮我总结这段文字的主题。人工智能正在改变世界。'}}
+2026-02-20 15:05:21,114 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): dashscope.aliyuncs.com:443
+2026-02-20 15:05:21,746 - urllib3.connectionpool - DEBUG - https://dashscope.aliyuncs.com:443 "POST /api/v1/services/aigc/text-generation/generation HTTP/1.1" 200 None
+2026-02-20 15:05:21,746 - dashscope - DEBUG - Response: {'output': {'finish_reason': 'stop', 'text': '这段文字的主题是：**人工智能对世界的影响**。'}, 'usage': {'input_tokens': 24, 'output_tokens': 12, 'prompt_tokens_details': {'cached_tokens': 0}, 'total_tokens': 36}, 'request_id': '3d337b9a-4252-45c7-b9cd-2d731e251961'}
+2026-02-20 15:05:21,747 - app.services.bailian_client - INFO - 百炼请求接收成功！
+2026-02-20 15:05:21,747 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-20 15:05:21,749 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-20 15:05:21,749 - app.analyzer - INFO - Analysis completed successfully!
+2026-02-20 15:13:36,549 - __main__ - INFO - 安全加载环境变量: {'ENV': 'dev', 'APP_NAME': 'AI Itern Project', 'BAILIAN_API_KEY': '***', 'LOG_LEVEL': 'INFO'}
+2026-02-20 15:13:36,550 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-20 15:13:36,550 - __main__ - INFO - 现在的环境为:dev
+2026-02-20 15:13:36,551 - app.services.bailian_client - INFO - 发送请求到百炼API...
+2026-02-20 15:13:36,554 - dashscope - DEBUG - Request body: {'model': 'qwen-turbo', 'parameters': {'max_tokens': 200}, 'input': {'prompt': '请帮我总结这段文字的主题。人工智能正在改变世界。'}}
+2026-02-20 15:13:36,556 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): dashscope.aliyuncs.com:443
+2026-02-20 15:13:37,323 - urllib3.connectionpool - DEBUG - https://dashscope.aliyuncs.com:443 "POST /api/v1/services/aigc/text-generation/generation HTTP/1.1" 200 None
+2026-02-20 15:13:37,324 - dashscope - DEBUG - Response: {'output': {'finish_reason': 'stop', 'text': '这段文字的主题是：**人工智能对世界产生的变革性影响**。'}, 'usage': {'input_tokens': 24, 'output_tokens': 15, 'prompt_tokens_details': {'cached_tokens': 0}, 'total_tokens': 39}, 'request_id': 'a5347106-26cf-40b0-b1c7-f83402cb11ff'}
+2026-02-20 15:13:37,325 - app.services.bailian_client - INFO - 百炼请求接收成功！
+2026-02-20 15:13:37,326 - app.analyzer - INFO - Start analyzing file: data/sample.txt
+2026-02-20 15:13:37,328 - app.analyzer - DEBUG - Raw text length: 98
+2026-02-20 15:13:37,329 - app.analyzer - INFO - Analysis completed successfully!
